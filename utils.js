@@ -7,17 +7,34 @@
  *  INPUT: const obj = {
  *      foo: false,
  *      bar: false,
- *      vinz: true,
+ *      abc: true,
  *  }
- *  setAllAttributesTab(obj,'foo');
+ *  setAllAttributesObject(obj,'foo');
  *  OUTPUT: obj = {
  *      foo: true,
  *      bar: false,
- *      vinz: false,
+ *      abc: false,
  *  }
  */
-const setAllAttributesTab = (obj,keywordTab) => {
+const setAllAttributesObject = (obj,keywordTab) => {
     Object.keys(obj).forEach(key => {
         key === keywordTab ? obj[key] = true : obj[key] = false;
     });
 };
+/**
+ * This func will get all children array in Array, then return new Array with all children array value
+ * input: array, nameArray
+ * output: new array (include all children array)
+ * example:
+ *  INPUT: const array = [{
+ *      'name': 'abc',
+ *      'value': [{a:1,b:2,c:3}]
+ *  }]
+ *  OUTPUT: const array = [{a:1,b:2,c:3}];
+ */
+const getArrayOf = (array,property) => {
+    return array.reduce((prev, next) => {
+        prev.push(...(next[property])|| []);
+        return prev;
+    }, [])
+}
