@@ -27,10 +27,12 @@ const setAllAttributesObject = (obj,keywordTab) => {
  * output: new array (include all children array)
  * example:
  *  INPUT: const array = [{
- *      'name': 'abc',
- *      'value': [{a:1,b:2,c:3}]
- *  }]
- *  OUTPUT: const array = [{a:1,b:2,c:3}];
+ *               'name': 'abc',
+ *               'value': [{a:1,b:2,c:3}]
+ *            }]
+ *         const b = getArrayOf(array,'value')
+ * 
+ *  OUTPUT: const b = [{a:1,b:2,c:3}];
  */
 const getArrayOf = (array,property) => {
     return array.reduce((prev, next) => {
