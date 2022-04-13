@@ -38,3 +38,25 @@ const getArrayOf = (array,property) => {
         return prev;
     }, [])
 }
+/**
+ * This func can change all your object's attributes value into null
+ * input : Object
+ * output: new Object
+ * example:
+ *  INPUT: const obj = {
+ *      foo: 1,
+ *      bar: 2,
+ *      abc: 3,
+ *  }
+ *  removeAllObjectAttributeValue(obj);
+ *  OUTPUT: obj = {
+ *      foo: null,
+ *      bar: null,
+ *      abc: null,
+ *  }
+ */
+const removeAllObjectAttributeValue = (object) => {
+    Object.keys(object).forEach(key => {
+        object[key] = null;
+     });
+}
